@@ -1,98 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Cursos en Linea</title>
     <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/estilos.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
-
-    <div id="RegistrarClinete">
-        <main>
-            <div id="formulario">
-                <form method="post" action="Controlador" class="form-signin" id="formulario">
-
-                    <label for="idUsuario" style="display: none;">ID</label>
-                    <input type="hidden" name="idUsuario" id="idUsuario" value="0">
-
-                    <input type="text" class="form-control" name="primerNombre" id="primerNombre" placeholder="Primer Nombre" required="" autofocus=""
-                    />
-
-                    <input type="text" class="form-control" name="segundoNombre" id="segundoNombre" placeholder="Segundo Nombre" autofocus=""
-                    />
-
-                    <input type="text" class="form-control" name="primerApellido" id="primerApellido" placeholder="Primer Apellido" required=""
-                        autofocus="" />
-
-                    <input type="text" class="form-control" name="segundoApellido" id="segundoApellido" placeholder="Segundo Apellido" required=""
-                        autofocus="" />
-
-                    <div class="divRedencion">
-                        <label for="tipodocumento">Tipo de Documento</label>
-                        <br/>
-                        <select class="selectpicker form-control" id="tipodocumento" name="tipodocumento" ng-model="canalp">
-        
-                        </select>
-                    </div>
-
-                    <input type="number" class="form-control" name="numeroDocumento" id="numeroDocumento" placeholder="Numero Documento" required=""
-                        autofocus="" />
-
-
-                    <div class="divRedencion">
-                        <label for="redencionInput">Sexo</label>
-                        <br/>
-                        <select class="selectpicker form-control" name="sexo" id="sexo" ng-model="canalp">
-                            <option>M</option>
-                            <option>F</option>
-                        </select>
-                    </div>
-                    <input type="number" class="form-control" name="edad" id="edad" placeholder="Edad" required="" autofocus="" />
-
-                    <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Telefono" required="" autofocus="" />
-
-                    <input type="email" class="form-control" name="correo" id="correo" placeholder="Correo" required="" autofocus="" />
-
-                    <input type="text" class="form-control" name="direccion" id="direccion" placeholder="direccion" required="" autofocus=""
-                    />
-
-                    <table id="DeparCiudad">
-                        <tr>
-                            <td>
-                                <div class="divRedencion">
-                                    <label for="departamento">Departamento</label>
-                                    <br/>
-                                    <select class="selectpicker form-control" name="departamento" id="departamento" ng-model="canalp">
-           
-                                    </select>
-                                </div>
-                            </td>
-
-                            <td>
-                                <div class="divRedencion">
-                                    <label for="ciudad">Ciudad</label>
-                                    <br/>
-                                    <select class="selectpicker form-control" name="ciudad" id="ciudad" ng-model="canalp">
-  
-                                    </select>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                    <br/>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit" value="Enviar" id="botonEnviar">Enviar</button>
-                    <button class="btn btn-lg btn-primary btn-block" type="reset" value="Limpiar Campos" id="botonLimpiar">Limpiar Campos</button>
-
-                </form>
+<body ng-controller="GreetingController">
+    <div id="formRegistrarC">
+        <form ng-submit="registro(id, name, type, number, gender, telephone, email, address)">
+            <label for="idUsuario">ID</label>
+            <input type="number" ng-model="id" class="form-control" name="idUsuario" id="idUsuario" value="0">
+            <br>
+            <br>
+            <label for="idUsuario">Nombre</label>
+            <input type="text" ng-model="name" class="form-control" name="primerNombre" placeholder="Nombre" />
+            <br>
+            <br>
+            <div class="divRedencion">
+                <label for="tipodocumento">Tipo de Documento</label>
+                <select class="selectpicker form-control" ng-model="type" name="tipodocumento">
+                    <option>Cédula</option>
+                    <option>Tarjeta de Identidad</option>
+                </select>
             </div>
-        </main>
-        <footer>
-        </footer>
+            <br/>
+            <br/>
+            <label for="idUsuario">Numero de documento</label>
+            <input type="number" ng-model="number" class="form-control" name="numeroDocumento" placeholder="Numero Documento" />
+            <br/>
+            <br/>
+            <div class="divRedencion">
+                <label for="redencionInput">Sexo</label>
+                <select class="selectpicker form-control" ng-model="gender" name="sexo">
+                    <option>M</option>
+                    <option>F</option>
+                </select>
+            </div>
+            <br/>
+            <br/>
+            <label for="redencionInput">Telefono</label>
+            <input type="number" ng-model="telephone" class="form-control" name="telefono" placeholder="Telefono" />
+            <br/>
+            <br/>
+            <label for="redencionInput">Correo</label>
+            <input type="email" class="form-control" ng-model="email" name="correo" placeholder="Correo" />
+            <br/>
+            <br/>
+            <label for="redencionInput">Dirección</label>
+            <input type="text" class="form-control" ng-model="address" name="direccion" placeholder="direccion" />
+            <br/>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" value="Enviar" id="botonEnviar">Enviar</button>
+            <button class="btn btn-lg btn-primary btn-block" type="reset" value="Limpiar Campos" id="botonLimpiar">Limpiar Campos</button>
+        </form>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="js/registrar.js"></script>
 </body>
 
 </html>
