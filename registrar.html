@@ -2,68 +2,97 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>responsive-admin-menu</title>
-
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    JS, Popper.js, and jQuery
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script type="text/javascript" src="JS/consulta.js"></script>
-
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Cursos en Linea</title>
+    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/estilos.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-    <form>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+
+    <div id="RegistrarClinete">
+        <main>
+            <div id="formulario">
+                <form method="post" action="Controlador" class="form-signin" id="formulario">
+
+                    <label for="idUsuario" style="display: none;">ID</label>
+                    <input type="hidden" name="idUsuario" id="idUsuario" value="0">
+
+                    <input type="text" class="form-control" name="primerNombre" id="primerNombre" placeholder="Primer Nombre" required="" autofocus=""
+                    />
+
+                    <input type="text" class="form-control" name="segundoNombre" id="segundoNombre" placeholder="Segundo Nombre" autofocus=""
+                    />
+
+                    <input type="text" class="form-control" name="primerApellido" id="primerApellido" placeholder="Primer Apellido" required=""
+                        autofocus="" />
+
+                    <input type="text" class="form-control" name="segundoApellido" id="segundoApellido" placeholder="Segundo Apellido" required=""
+                        autofocus="" />
+
+                    <div class="divRedencion">
+                        <label for="tipodocumento">Tipo de Documento</label>
+                        <br/>
+                        <select class="selectpicker form-control" id="tipodocumento" name="tipodocumento" ng-model="canalp">
+        
+                        </select>
+                    </div>
+
+                    <input type="number" class="form-control" name="numeroDocumento" id="numeroDocumento" placeholder="Numero Documento" required=""
+                        autofocus="" />
+
+
+                    <div class="divRedencion">
+                        <label for="redencionInput">Sexo</label>
+                        <br/>
+                        <select class="selectpicker form-control" name="sexo" id="sexo" ng-model="canalp">
+                            <option>M</option>
+                            <option>F</option>
+                        </select>
+                    </div>
+                    <input type="number" class="form-control" name="edad" id="edad" placeholder="Edad" required="" autofocus="" />
+
+                    <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Telefono" required="" autofocus="" />
+
+                    <input type="email" class="form-control" name="correo" id="correo" placeholder="Correo" required="" autofocus="" />
+
+                    <input type="text" class="form-control" name="direccion" id="direccion" placeholder="direccion" required="" autofocus=""
+                    />
+
+                    <table id="DeparCiudad">
+                        <tr>
+                            <td>
+                                <div class="divRedencion">
+                                    <label for="departamento">Departamento</label>
+                                    <br/>
+                                    <select class="selectpicker form-control" name="departamento" id="departamento" ng-model="canalp">
+           
+                                    </select>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="divRedencion">
+                                    <label for="ciudad">Ciudad</label>
+                                    <br/>
+                                    <select class="selectpicker form-control" name="ciudad" id="ciudad" ng-model="canalp">
+  
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" value="Enviar" id="botonEnviar">Enviar</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="reset" value="Limpiar Campos" id="botonLimpiar">Limpiar Campos</button>
+
+                </form>
             </div>
-            <div class="form-group col-md-6">
-                <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="form-group">
-            <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>
-            </div>
-            <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox"> Check me out
-                </label>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
-    </form>
+        </main>
+        <footer>
+        </footer>
+    </div>
 </body>
 
 </html>

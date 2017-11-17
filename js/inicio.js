@@ -8,7 +8,7 @@ myApp.controller('GreetingController', ['$scope', '$http', '$window', function (
         $http.get(url
         ).then(function successCallback(response) {
             if(response.status == 200){
-                var valorToken = "Luis el monta";
+                var valorToken = "ABCDE12345678910";
                 localStorage.setItem("token", valorToken);
                 $window.location.href = 'file:///C:/Users/Usuario/Desktop/backend/admin.html';
             }else{
