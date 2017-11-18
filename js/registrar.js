@@ -19,7 +19,7 @@
                 "idSexo": 1,
                 "nombreSexo": gender
             };
-            var data = JSON.stringify(user);            
+            var data = JSON.stringify(user);
             $http({
                 method: "POST",
                 url: url,
@@ -28,10 +28,10 @@
                 },
                 data
             }).then(function (response) {
-                var success = "Exito";                
+                var success = "Exito";
                 $window.alert(success);
                 console.log(response.data);
-               // $window.location.reload();
+                // $window.location.reload();
             }, function errorCallback(response) {
                 var error = "Datos incorrectos";
                 $window.alert(error);
