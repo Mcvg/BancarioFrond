@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Franquicias</title>
+
+
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script type="text/javascript" src="JS/consulta.js"></script>
+
+
+</head>
+
+<body>
+    <div id="responsive-admin-menu">
+        <div id="responsive-menu">
+            <div class="menuicon">≡</div>
+        </div>
+
+        <div id="logo"></div>
+
+        <!--Menu-->
+        <div id="menu">
+            <a href="admin.html" title="Dashboard">
+                <i class="icon-dashboard"></i>
+                <span>Administrador</span>
+            </a>
+            <a href="consulta.html" title="Listar Usuarios">
+                <i class="icon-bullhorn"></i>
+                <span>Listar Usuarios</span>
+            </a>
+            <a href="compras.html" title="Pages">
+                <i class="icon-file-alt"></i>
+                <span>Listar Compras</span>
+            </a>
+            <a href="registrar.html" title="Media">
+                <i class="fa fa-users"></i>
+                <span>Registrar Cliente</span>
+            </a>
+            <a href="registrar.html" title="Media" class="submenu" name="media-sub">
+                <i class="icon-eye-open"></i>
+                <span>Registrar Cliente</span>
+            </a>
+            <!-- Media Sub Menu -->
+            <div id="media-sub" style="display: none;">
+                <a href="" title="Video Gallery">
+                    <i class="icon-film"></i>
+                    <span>
+                        Video Gallery</span>
+                </a>
+                <a href="" title="Photo Gallery">
+                    <i class="icon-picture"></i>
+                    <span>
+                        Photo Gallery</span>
+                </a>
+            </div>
+            <!-- Media Sub Menu -->
+
+            <a href="" title="Graph &amp; Charts">
+                <i class="icon-bar-chart"></i>
+                <span>
+                    Graph &amp; Charts</span>
+            </a>
+            <a href="" title="Listar Uusarios">
+                <i class="icon-calendar"></i>
+                <span>
+                    Events</span>
+            </a>
+
+            <a href="" class="submenu" name="other-sub" title="Other Contents">
+                <i class="icon-book"></i>
+                <span>
+                    Other Contents</span>
+            </a>
+            <!-- Other Contents Sub Menu -->
+            <div id="other-sub" style="display: none;">
+                <a href="" title="Forms">
+                    <i class="icon-list"></i>
+                    <span>
+                        Forms</span>
+                </a>
+                <a href="" title="Mail Lists">
+                    <i class="icon-list-ul"></i>
+                    <span>
+                        Mail Lists</span>
+                </a>
+                <a href="" title="Maps">
+                    <i class="icon-map-marker"></i>
+                    <span>
+                        Maps</span>
+                </a>
+            </div>
+            <!-- Other Contents Sub Menu -->
+            <a href="" title="Admin Tools">
+                <i class="icon-cogs"></i>
+                <span>
+                    Admin Tools</span>
+            </a>
+        </div>
+        <!--Menu-->
+
+
+    </div>
+
+    <div id="content-wrapper">
+        <div ng-app="myApp" ng-controller="GreetingController">
+            <table class="table table-striped results">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Acronimo</th>
+                        <th>Rango Inicial</th>
+                        <th>Rango Final</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in posts">
+                        <td>{{x.idFranquicia}}</td>
+                        <td>{{x.nombre}}</td>
+                        <td>{{x.acronimo}}</td>
+                        <td>{{x.rangoInicial}}</td>
+                        <td>{{x.rangoFinal}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="js/ListarFranquicias.js"></script>
+
+</body>
+
+</html>
