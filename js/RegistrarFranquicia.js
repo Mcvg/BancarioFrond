@@ -12,7 +12,6 @@
             user.rangoFinal = rangoFinal;       
 
             var data = JSON.stringify(user);
-            Console.log(response.data);
             $http({
                 method: "POST",
                 url: url,
