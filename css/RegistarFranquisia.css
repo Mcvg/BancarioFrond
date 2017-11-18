@@ -11,9 +11,15 @@ body {
     background-color: #404040;
 }
 
+
+/* body	*/
+
+
+/*Formulario  de Registro de franquisias*/
+
 form {
-    width: 157px;
-    margin: 0px 300px 0px 300px;
+    width: 212px;
+    margin: 0px 300px 6px 154px;
     padding: 5px 5px 5px 5px;
 }
 
