@@ -10,7 +10,7 @@ myApp.controller('GreetingController', ['$scope', '$http', '$window', function (
         url: 'http://localhost:8080/backendPpi/rest/persona'     
 
     }).then(function successCallback(response) {
-        $scope.posts = response.data
+        $scope.posts = response.data;
     }, function errorCallback(response) {
 
     });
