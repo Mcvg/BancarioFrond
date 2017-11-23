@@ -1,14 +1,13 @@
 //Funcion verificar el login 
 var myApp = angular.module('myApp', []);
 myApp.controller('GreetingController', ['$scope', '$http', '$window', function ($scope, $http, $window) {
-    var url = 'http://localhost:8080/backendPpi/rest/usuario/login';
+    var url = 'http://localhost:8080/backendPpi/rest/persona/id?id';
 
-    $scope.login = function (username, password) {
-        url = url + '?' + 'nomUsuario=' + username + '&password=' + password;
+    $scope.login = function (id) {
+        url = url + '=' + 'nomUsuario=' + username + '&password=' + password;
         $http.get(url).then(function successCallback(response) {
             if (response.status == 200) {
-                var valorToken = "ABCDE12345678910";
-                localStorage.setItem("token", valorToken);
+
                 console.log(response.data.idPerfil.idPerfil);
 
                 if (response.data.idPerfil.idPerfil == 1) {

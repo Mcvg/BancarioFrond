@@ -115,7 +115,10 @@
                         <th>Valor</th>
                         <th>Cuotas</th>
                         <th>Fecha Compra</th>
-                        <th>Saldo Pendiente</th>
+						<th>Saldo Pendiente</th>
+						<th>Documento</th>
+						<th>Nombre</th>
+						<th>Monto</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -124,7 +127,10 @@
                         <td>{{x.valor}}</td>
                         <td>{{x.cuotas}}</td>
                         <td>{{x.fechaCompra}}</td>
-                        <td>{{x.saldoPendiente}}</td>
+						<td>{{x.saldoPendiente}}</td>
+						<td>{{x.idCliente.nroDocumento}}</td>
+						<td>{{x.idCliente.nombre}}</td>
+						<td>{{x.idTdc.monto}}</td>
                     </tr>
                 </tbody>
             </table>
