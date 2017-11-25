@@ -4,19 +4,13 @@ myApp.controller('GreetingController', ['$scope', '$http', '$window', function (
     var url = 'http://localhost:8080/backendPpi/rest/persona/id?id';
 
     $scope.login = function (id) {
-        url = url + '=' + id;
-
+        url = url + '=' + id;    
+        
         $http.get(url).then(function successCallback(response) {
-            if (response.status == 200) {
-                method: 'GET',                
-                url;
-                $scope.posts = response.data;
-            }
-            else {
-                var error = "Id No existe";
-                $window.alert(error);
-                $window.location.reload();
-            }
+            method: 'GET',
+            url = url;
+            $scope.posts = response.data;           
+            console.log(response.data);
         });
     }
 }]);
