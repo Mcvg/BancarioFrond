@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>responsive-admin-menu</title>
+    <title>Actualizar Cliente</title>
 
 
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
@@ -100,52 +100,25 @@
         </div>
         <!--Menu-->
     </div>
-    
+
     <!--Formulario de registro cliente -->
     <div ng-controller="GreetingController">
         <div id="formRegistrarC">
             <div id="content-wrapper">
-                <form ng-submit="registro(id, name, type, number, gender, telephone, email, address)">
-
-                    <input type="text" ng-model="name" class="form-control" name="primerNombre" placeholder="Nombre" />
- 
-                    <div class="divRedencion">
-                        <label for="tipodocumento">Tipo de Documento</label>
-                        <select class="selectpicker form-control" ng-model="type" name="tipodocumento">
-                            <option>Cédula</option>
-                            <option>Pasaporte</option>
-                        </select>
-                    </div>
-
-                    <label for="idUsuario">Numero de documento</label>
-                    <input type="number" ng-model="number" class="form-control" name="numeroDocumento" placeholder="Numero Documento" />
-
-                    <div class="divRedencion">
-                        <label for="redencionInput">Sexo</label>
-                        <select class="selectpicker form-control" ng-model="gender" name="sexo">
-                            <option>M</option>
-                            <option>F</option>
-                        </select>
-                    </div>
-
-                    <label for="redencionInput">Telefono</label>
-                    <input type="number" ng-model="telephone" class="form-control" name="telefono" placeholder="Telefono" />
-
-                    <label for="redencionInput">Correo</label>
-                    <input type="email" class="form-control" ng-model="email" name="correo" placeholder="Correo" />
-
-                    <label for="redencionInput">Dirección</label>
-                    <input type="text" class="form-control" ng-model="address" name="direccion" placeholder="direccion" />
-                    <br/>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit" value="Enviar" id="botonEnviar">Enviar</button>
-                    <button class="btn btn-lg btn-primary btn-block" type="reset" value="Limpiar Campos" id="botonLimpiar">Limpiar Campos</button>
+                <form class="form-signin" ng-submit="login(id)">
+                    <h2 class="form-signin-heading">Ingrese Id a actualizar</h2>
+                    <input type="text" class="form-control" ng-model="id" placeholder="id" required="" />
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
                 </form>
             </div>
         </div>
+        
+        <!--aca empieza el formulario de actulizar cliente-->
+
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-        <script src="js/registrar.js"></script>
+        <script src="js/actualizarClientes.js"></script>
     </div>
 </body>
 

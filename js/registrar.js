@@ -28,7 +28,7 @@
                 },
                 data
             }).then(function (response) {
-                var success = "Exito";
+                var success = "Usuario Registrado con Exito";
                 $window.alert(success);
                 console.log(response.data);
                 $window.location.reload();
