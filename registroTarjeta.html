@@ -3,13 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Actualizar Cliente</title>
+    <title>responsive-admin-menu</title>
 
 
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="css/registro.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="js/actualizarClientes.js"></script>
 
 </head>
 
@@ -19,7 +18,7 @@
             <div class="menuicon">≡</div>
         </div>
 
-        <div id="logo"></div>
+        <div id="logo">Banco</div>
 
         <!--Menu-->
         <div id="menu">
@@ -106,16 +105,38 @@
     <div ng-controller="GreetingController">
         <div id="formRegistrarC">
             <div id="content-wrapper">
-                <form class="form-signin" ng-submit="login(id)">
-                    <h2 class="form-signin-heading">Ingrese Id a actualizar</h2>
-                    <input type="text" class="form-control" ng-model="id" placeholder="id" required="" />
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                <form ng-submit="registro(nombre, acronimo, tazaInteres, plazoMax, cupoMax, multa)">
+
+                    <label for="acronimo">Nombre</label>
+                    <input type="text" ng-model="nombre" class="form-control" name="nombre" placeholder="" />
+
+                    <label for="acronimo">Acronimo</label>
+                    <input type="text" ng-model="acronimo" class="form-control" name="acronimo" placeholder="" />
+
+                    <label for="acronimo">Taza de Interes</label>
+                    <input type="text" ng-model="tazaInteres" class="form-control" name="tazaInteres" placeholder="" />
+
+                    <label for="acronimo">Plazo</label>
+                    <input type="text" ng-model="plazoMax" class="form-control" name="plazoMax" placeholder="" />
+
+                    <label for="acronimo">Cupo Maximo</label>
+                    <input type="text" ng-model="cupoMax" class="form-control" name="cupoMax" placeholder="" />
+
+                    <label for="acronimo">Multa</label>
+                    <input type="text" ng-model="multa" class="form-control" name="multa" placeholder="" />
+
+                    <!--Aca va a ir la seleccion de franquicias -->
+
+                    <br/>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" value="Enviar" id="botonEnviar">Enviar</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="reset" value="Limpiar Campos" id="botonLimpiar">Limpiar Campos</button>
                 </form>
-                <input type="text" class="form-control" ng-model="id" placeholder= {{x.idPersona}} required="" />
-                <input type="text" class="form-control" ng-model="id" placeholder= {{x.nroDocumento}} required="" />
             </div>
         </div>
-
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script src="js/registroTarjeta.js"></script>
     </div>
 </body>
 
