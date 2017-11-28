@@ -105,7 +105,7 @@
     <div ng-controller="GreetingController">
         <div id="formRegistrarC">
             <div id="content-wrapper">
-                <form ng-submit="registro(nombre, acronimo, tazaInteres, plazoMax, cupoMax, multa)">
+                <form ng-submit="registro(nombre, acronimo, tazaInteres, plazoMax, cupoMax, multa, nombreFranquicia)">
 
                     <label for="acronimo">Nombre</label>
                     <input type="text" ng-model="nombre" class="form-control" name="nombre" placeholder="" />
@@ -126,6 +126,13 @@
                     <input type="text" ng-model="multa" class="form-control" name="multa" placeholder="" />
 
                     <!--Aca va a ir la seleccion de franquicias -->
+
+                    <div class="diNombreFranquicia">
+                        <label for="FranquiciaInput">Sexo</label>
+                        <select class="selectpicker form-control" ng-model="nombreFranquicia" name="nombreFranquicia">
+                            <option ng-repeat="x in franquicias">{{ x.nombre }}</option>
+                        </select>
+                    </div>
 
                     <br/>
                     <button class="btn btn-lg btn-primary btn-block" type="submit" value="Enviar" id="botonEnviar">Enviar</button>
