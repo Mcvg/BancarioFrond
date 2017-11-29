@@ -104,19 +104,35 @@
 
     <!--Formulario de registro cliente -->
     <div ng-controller="GreetingController">
-        <div id="formRegistrarC">
+        <div id="form">
             <div id="content-wrapper">
-                <form class="form-signin" ng-submit="login(id)">
-                    <h2 class="form-signin-heading">Ingrese Id a actualizar</h2>
+                <form class="form-signin" ng-submit="consultar(id)">
+                    <h2 class="form-signin-heading">Ingrese Id para actualizar</h2>
                     <input type="text" class="form-control" ng-model="id" placeholder="id" required="" />
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
                 </form>
-                <input type="text" class="form-control" ng-model="id" placeholder= {{x.idPersona}} required="" />
-                <input type="text" class="form-control" ng-model="id" placeholder= {{x.nroDocumento}} required="" />
             </div>
         </div>
-
+        <div id="form">
+            <div id="content-wrapper">
+                <form class="form-signin" ng-submit="actualizar(idPersona, nroDocumento, nombre, telefono, direccion, email, idTipoDocumento, nombreDoc, idSexo, nombreSexo)">
+                    <h2 class="form-signin-heading">Ingrese Id para actualizar</h2>
+                    <input type="text" class="form-control" ng-model="idPersona" ng-value= "posts.idPersona" required="" />
+                    <input type="text" class="form-control" ng-model="nroDocumento" ng-value= "posts.nroDocumento" required="" />
+                    <input type="text" class="form-control" ng-model="nombre" ng-value= "posts.nombre" required="" />
+                    <input type="text" class="form-control" ng-model="telefono" ng-value= "posts.telefono" required="" />
+                    <input type="text" class="form-control" ng-model="direccion" ng-value= "posts.direccion" required="" />
+                    <input type="text" class="form-control" ng-model="email" ng-value= "posts.email" required="" />
+                    <input type="text" class="form-control" ng-model="idTipoDocumento" ng-value= "posts.idTipoDocument.idTipoDocumento" required="" />
+                    <input type="text" class="form-control" ng-model="nombreDoc" ng-value= "posts.idTipoDocument.nombreDoc" required="" />
+                    <input type="text" class="form-control" ng-model="idSexo" ng-value= "posts.idSexo.idSexo" required="" />
+                    <input type="text" class="form-control" ng-model="nombreSexo" ng-value= "posts.idSexo.nombreSexo" required="" />
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 
 </html>
+<!--ng-value = {{posts.idPersona}}-->
