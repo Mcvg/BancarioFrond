@@ -67,8 +67,7 @@
 			</a>
 			<a href="" title="Listar Uusarios">
 				<i class="icon-calendar"></i>
-				<span>
-					Events</span>
+				<span>Events</span>
 			</a>
 
 			<a href="" class="submenu" name="other-sub" title="Other Contents">
@@ -111,7 +110,6 @@
             <table class="table table-striped results">
                 <thead>
                     <tr>
-                        <th>idCompra</th>
                         <th>Valor</th>
                         <th>Cuotas</th>
                         <th>Fecha Compra</th>
@@ -119,11 +117,12 @@
 						<th>Documento</th>
 						<th>Nombre</th>
 						<th>Monto</th>
+						<th>Estado</th>
+						<th>Nombre Tarjeta</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="x in posts">
-                        <td>{{x.idCompra}}</td>
                         <td>{{x.valor}}</td>
                         <td>{{x.cuotas}}</td>
                         <td>{{x.fechaCompra}}</td>
@@ -131,6 +130,7 @@
 						<td>{{x.idCliente.nroDocumento}}</td>
 						<td>{{x.idCliente.nombre}}</td>
 						<td>{{x.idTdc.monto}}</td>
+						<td>{{x.idTdc.idTarjeta.nombreTarjeta}}</td>
                     </tr>
                 </tbody>
             </table>

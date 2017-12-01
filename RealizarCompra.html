@@ -18,7 +18,7 @@
             <div class="menuicon">≡</div>
         </div>
 
-        <div id="logo">Banco</div>
+        <div id="logo"></div>
 
         <!--Menu-->
         <div id="menu">
@@ -26,9 +26,16 @@
                 <i class="fa fa-home"></i>
                 <span>Inicio</span>
             </a>
-            <a href=".html" title="Listar Usuarios">
-                <i class="icon-bullhorn"></i>
-                <span>Abono Tarjeta</span>
+            <a href=".html" title="Listar Usuarios">           
+                <i class="fa fa-money"></i>
+                <span>Realizar Abono</span>
+            </a>
+            <a href="inicio.html" name="tarjeta-sub" title="Tarjetas">
+                <i class="fa fa-sign-out"></i>
+                <span>Salir</span>
+                <script>
+                    //localStorage.clear();
+                </script>
             </a>
         </div>
         <!--Menu-->
@@ -61,7 +68,7 @@
                     <!--Aca va a ir la seleccion de franquicias -->
 
                     <div class="diNombreFranquicia">
-                        <label for="FranquiciaInput">Sexo</label>
+                        <label for="FranquiciaInput">Franquicia</label>
                         <select class="selectpicker form-control" ng-model="nombreFranquicia" name="nombreFranquicia">
                             <option ng-repeat="x in franquicias">{{ x.nombre }}</option>
                         </select>

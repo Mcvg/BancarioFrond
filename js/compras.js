@@ -11,7 +11,7 @@ myApp.controller('GreetingController', ['$scope', '$http', function ($scope, $ht
 
     }).then(function successCallback(response) {
         $scope.posts = response.data
-       // console.log(response.data[0].idTdc.monto);
+       console.log(response.data[0].idTdc.idTarjeta.nombreTarjeta);
     }, function errorCallback(response) {
 
     });
