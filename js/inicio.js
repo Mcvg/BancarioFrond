@@ -14,7 +14,7 @@ myApp.controller('GreetingController', ['$scope', '$http', '$window', function (
                 if (response.data.idPerfil.idPerfil == 1) {
                     $window.location.href = 'admin.html';
                 } else if (response.data.idPerfil.idPerfil == 2) {
-                    $window.location.href = 'file:///C:/Users/Usuario/Desktop/backend/cliente.html';
+                    $window.location.href = 'cliente.html';
                 }
 
                 //
