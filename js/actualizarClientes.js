@@ -8,7 +8,15 @@ myApp.controller('GreetingController', ['$scope', '$http', '$window', function (
         url = url + '=' + id;
 
         $http.get(url).then(function successCallback(response) {
-            $scope.posts = response.data;
+            if (response.status == 200) {
+                $scope.posts = response.data; 
+            }else{
+                
+            }if (response.status != 200) {
+                var error = "Datos incorrectos";
+                $window.alert(error);
+                $window.location.reload();  
+            }          
         });
     }
 
@@ -48,6 +56,4 @@ myApp.controller('GreetingController', ['$scope', '$http', '$window', function (
     
         });
     }
-
-    //aqui 
 }]);
