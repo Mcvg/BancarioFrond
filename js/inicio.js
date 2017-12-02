@@ -12,7 +12,7 @@ myApp.controller('GreetingController', ['$scope', '$http', '$window', function (
                 console.log(response.data.idPerfil.idPerfil);
 
                 if (response.data.idPerfil.idPerfil == 1) {
-                    $window.location.href = 'file:///C:/Users/Usuario/Desktop/backend/admin.html';
+                    $window.location.href = 'admin.html';
                 } else if (response.data.idPerfil.idPerfil == 2) {
                     $window.location.href = 'file:///C:/Users/Usuario/Desktop/backend/cliente.html';
                 }
