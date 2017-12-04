@@ -7,9 +7,10 @@
 
 
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
-    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css/compras.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-
+     <link rel="stylesheet" type="text/css" href="lib/sweetalert.css">
+     <script src="lib/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -46,20 +47,25 @@
     <div ng-controller="GreetingController">
         <div id="formRegistrarC">
             <div id="content-wrapper">
-                <form ng-submit="registro(idFranquicia, nombre, acronimo, rangoInicial, rangoFinal)">
+                <form ng-submit="registro(idFranquicia, nombre, acronimo, rangoInicial)">
+                    <label id="registrarse">Registrar</label>
+                    <label id="compras">Franquicia</label>
 
-                    <label for="nombre">nombre</label>
-                    <input type="text" ng-model="nombre" class="form-control" name="nombre" placeholder="" />
+                    <label for="nombre">Nombre* </label>
+                    <input type="text" ng-model="nombre" class="form-control" name="nombre" placeholder="" onkeypress="return soloLetras(event)" required />
 
-                    <label for="acronimo">acronimo</label>
-                    <input type="text" ng-model="acronimo" class="form-control" name="acronimo" placeholder="" />
+                    <label for="acronimo">Acrónimo*</label>
+                    <input type="text" ng-model="acronimo" class="form-control" name="acronimo" placeholder="" onkeypress="return soloLetras(event)" required/>
 
-                    <label for="acronimo">Rango Inicial</label>
-                    <input type="text" ng-model="rangoInicial" class="form-control" name="acronimo" placeholder="" />
-
+                    <label for="acronimo">Rango*</label>
+                    <input type="text" ng-model="rangoInicial" class="form-control" name="rangoInicial" placeholder="" onkeypress="return soloNumeros(event)"required/>
+                    <br>
+                    
+                    <label id="asteriscos" for="redencionInput">Todos los campos marcados con * son obligatorios</label>
+                    
                     <br/>
                     <button class="btn btn-lg btn-primary btn-block" type="submit" value="Enviar" id="botonEnviar">Enviar</button>
-                    <button class="btn btn-lg btn-primary btn-block" type="reset" value="Limpiar Campos" id="botonLimpiar">Limpiar Campos</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="reset" value="Limpiar Campos" id="botonLimpiar">Limpiar</button>
                 </form>
             </div>
         </div>
@@ -69,5 +75,45 @@
         <script src="js/RegistrarFranquicia.js"></script>
     </div>
 </body>
+    <script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            swal('Importante!', 'Solamente se puede ingresar letras', 'error');
+            return false;
+        }
+    }
+function soloNumeros(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " 1234567890";
+       especiales = "44-45-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+           swal('Importante!', 'Solamente se puede ingresar números', 'error');
+            return false;
+        }
+  }
+</script>
 
 </html>

@@ -3,12 +3,14 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Bootstrap Login Form</title>
+  <title>Ingreso al Sistema</title>
 
 
   <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
 
   <link rel="stylesheet" href="css/inicio.css">
+             <link rel="stylesheet" type="text/css" href="lib/sweetalert.css">
+     <script src="lib/sweetalert.min.js"></script>
 
 
 </head>
@@ -17,12 +19,12 @@
   <div class="wrapper">
     <form class="form-signin" ng-submit="login(username, password)">
       <h2 class="form-signin-heading">Sistema Bancario</h2>
-      <input type="text" class="form-control" ng-model="username" placeholder="Ingrese su Usuario" required="" autofocus="" />
-      <input type="password" class="form-control" ng-model="password" placeholder="Contraseña" required="" />
+      <input id="uname" type="text" class="form-control" ng-model="username" placeholder="Ingrese su Usuario" required="" autofocus="" onkeypress="return soloNumeros(event)"/>
+      <input id="pass" type="password" class="form-control" ng-model="password" placeholder="Contraseña" required="" />
       <label class="checkbox">
         <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe">Olvidó su Contraseña
       </label>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" >Ingresar</button>
     </form>
   </div>
 
@@ -30,5 +32,47 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script src="js/inicio.js"></script>
 </body>
+        <script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+           swal('Importante!', 'Solamente se puede ingresar letras', 'error');
+            return false;
+        }
+    }
+function soloNumeros(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " 1234567890";
+       especiales = "44-45-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+           swal('Importante!', 'Usuario y/o contraseña están incorrectos', 'error');
+            return false;
+        }
+  }
+
+</script>
+
 
 </html>

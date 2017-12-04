@@ -7,8 +7,10 @@
 
 
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
-    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css/compras.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+             <link rel="stylesheet" type="text/css" href="lib/sweetalert.css">
+     <script src="lib/sweetalert.min.js"></script>
 
 </head>
 
@@ -46,39 +48,45 @@
         <div id="formRegistrarC">
             <div id="content-wrapper">
                 <form ng-submit="registro(id, name, type, number, gender, telephone, email, address)">
-
-                    <input type="text" ng-model="name" class="form-control" name="primerNombre" placeholder="Nombre" />
+                    <label id="registrarse">Registrar</label>
+                    <label id="compras"> cliente</label>
+                    <label >Nombre*</label>
+                    <input type="text" ng-model="name" class="form-control" name="primerNombre" placeholder="Nombre" onkeypress="return soloLetras(event)" required />
 
                     <div class="divRedencion">
-                        <label for="tipodocumento">Tipo de Documento</label>
-                        <select class="selectpicker form-control" ng-model="type" name="tipodocumento">
+                        <label for="tipodocumento">Tipo documento*</label>
+                        <select id="tipodocumento" class="selectpicker form-control" ng-model="type" name="tipodocumento" required>
+                            <option value=""></option>
                             <option>Cédula</option>
                             <option>Pasaporte</option>
                         </select>
                     </div>
 
-                    <label for="idUsuario">Numero de documento</label>
-                    <input type="number" ng-model="number" class="form-control" name="numeroDocumento" placeholder="Numero Documento" />
+                    <label for="idUsuario">Documento*</label>
+                    <input  type="text" ng-model="number" class="form-control" name="numeroDocumento" placeholder="Número Documento" onkeypress="return soloNumeros(event)" required />
 
                     <div class="divRedencion">
-                        <label for="redencionInput">Sexo</label>
-                        <select class="selectpicker form-control" ng-model="gender" name="sexo">
+                        <label for="redencionInput">Sexo*</label>
+                        <select id="sexo" class="selectpicker form-control" ng-model="gender" name="sexo" required>
+                            <option value=""></option>
                             <option>M</option>
                             <option>F</option>
                         </select>
                     </div>
 
-                    <label for="redencionInput">Telefono</label>
-                    <input type="number" ng-model="telephone" class="form-control" name="telefono" placeholder="Telefono" />
+                    <label for="redencionInput">Teléfono*</label>
+                    <input type="text" ng-model="telephone" class="form-control" name="telefono" placeholder="Teléfono" onkeypress="return soloNumeros(event)" required/>
 
-                    <label for="redencionInput">Correo</label>
-                    <input type="email" class="form-control" ng-model="email" name="correo" placeholder="Correo" />
+                    <label for="redencionInput">Correo*</label>
+                    <input type="email" class="form-control" ng-model="email" name="correo" placeholder="Correo" required/>
 
-                    <label for="redencionInput">Dirección</label>
-                    <input type="text" class="form-control" ng-model="address" name="direccion" placeholder="direccion" />
+                    <label for="redencionInput">Dirección*</label>
+                    <input type="text" class="form-control" ng-model="address" name="direccion" placeholder="dirección" required/>
+                    <br>
+                     <label id="asteriscos" for="redencionInput">Todos los campos marcados con * son obligatorios</label>
                     <br/>
                     <button class="btn btn-lg btn-primary btn-block" type="submit" value="Enviar" id="botonEnviar">Enviar</button>
-                    <button class="btn btn-lg btn-primary btn-block" type="reset" value="Limpiar Campos" id="botonLimpiar">Limpiar Campos</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="reset" value="Limpiar Campos" id="botonLimpiar">Limpiar</button>
                 </form>
             </div>
         </div>
@@ -88,5 +96,45 @@
         <script src="js/registrar.js"></script>
     </div>
 </body>
+    <script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            swal('Importante!', 'Solamente se puede ingresar letras', 'error');
+            return false;
+        }
+    }
+function soloNumeros(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " 1234567890";
+       especiales = "44-45-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+           swal('Importante!', 'Solamente se puede ingresar números', 'error');
+            return false;
+        }
+  }
+</script>
 
 </html>
